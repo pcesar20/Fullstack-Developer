@@ -1,0 +1,30 @@
+.container{
+    margin: 25px;
+  }
+  .row{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .spacer{
+    margin-bottom: 25px;
+  }
+  img{
+    max-height: 20px;
+  }
+  
+  button{
+    margin-bottom: 20px;
+  }
+  
+  mat-label{
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    color: lightslategrey;
+  }
+  p{
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    margin-top: 10px;
+  }

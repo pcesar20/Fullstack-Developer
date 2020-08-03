@@ -1,0 +1,58 @@
+<div fxFlexAlign="stretch" class="container">
+    <div class="row" fxLayout="column">
+      <h2><b>Novo pedido #{{pedido.numped}}</b></h2>
+      <form>
+        <app-cliente
+          (clienteSelecionado)="onClienteSelecionado($event)">
+        </app-cliente>
+  
+        <div class="spacer"></div>
+  
+        <app-carrinho
+          (carrinhoDeCompras)="onCarrinhoDeComprasPreenchido($event)">
+        </app-carrinho>
+  
+        <div class="spacer"></div>
+  
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon fxFlex="40" matPrefix inline="true"><img src="assets/icones/icone-total.png" alt="image">
+              </mat-icon>
+              Total
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form>
+              <div fxFlex="100" fxLayout="row">
+                <div fxFlexOffset="1.7" fxFlex="60" fxLayout="row">
+                  <div fxLayout="column" fxFlex="85">
+                    <mat-label>Itens:</mat-label>
+                    <mat-label>Frete:</mat-label>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-label>Total:</mat-label>
+                  </div>
+                  <div fxLayout="column" fxLayoutAlign="center end" fxFlex="10">
+                    <p>{{valorItens | currency:'BRL':true}}</p>
+                    <p>{{pedido.valorFrete | currency:'BRL':true}}</p>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <p>{{pedido.valorTotal | currency:'BRL':true}}</p>
+                  </div>
+                </div>
+                <div fxFlex="40" fxLayout="column" fxLayoutAlign="center">
+                  <button mat-raised-button color="primary" aria-label="finalizar" style="color: #e6ebe4"
+                          (click)="finalizarPedido()" type="submit">
+                    Finalizar Pedido
+                  </button>
+                  <button mat-raised-button (click)="limparCarrinho()">
+                    Limpar carrinho
+                  </button>
+                  <mat-error *ngIf="erro">Selecione um cliente para finalizar a compra!</mat-error>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<mat-toolbar color="#FFFFFF">
+    <mat-toolbar-row>
+      <span> <img src="assets/icones/logotipo-maximatech.png" alt="image"></span>
+      <span class="item-spacer"></span>
+      <button class="item" mat-menu [matMenuTriggerFor]="menuCadastro">Cadastro</button>
+      <mat-menu #menuCadastro="matMenu" xPosition="after">
+        <button routerLink="/cadastro-cliente" mat-menu-item>Cliente</button>
+        <button routerLink="/cadastro-produto" mat-menu-item>Produto</button>
+      </mat-menu>
+      <button class="item" mat-menu [matMenuTriggerFor]="menuPedido">Pedido</button>
+      <mat-menu #menuPedido="matMenu" xPosition="after">
+        <button routerLink="/novo-pedido" mat-menu-item>Novo Pedido</button>
+        <button routerLink="/consulta-pedido" mat-menu-item>Consulta Pedido</button>
+      </mat-menu>
+
+
+      <span class="example-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>

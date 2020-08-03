@@ -1,0 +1,20 @@
+.item-spacer {
+    flex-direction: row;
+  }
+  
+  .spacer {
+    margin-left: 50px;
+    text-align: center;
+    font-size: 0.8em;
+  }
+  
+  img{
+    height: 50px;
+    margin-left: 50px;
+  }
+  
+  mat-toolbar{
+    min-height:54px;
+    max-height:58px;
+    background: snow;
+  }

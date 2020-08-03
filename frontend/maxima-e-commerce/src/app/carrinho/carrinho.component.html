@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon fxFlex="25" matPrefix inline="true">add_shopping_cart</mat-icon>
+        Produto
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-produto (produtoSelecionado)="onProdutoSelecionado($event)" ></app-produto>
+      <mat-card *ngFor="let prod of produtos" class="item-shopping-cart">
+        <div fxFlex="85">
+          <mat-card-subtitle>{{prod.codigo}}</mat-card-subtitle>
+          <mat-card-title>{{prod.nome}}</mat-card-title>
+        </div>
+        <div fxFlex="15">
+          <app-calculo-valor [prod]="prod" (valorCalculado)="onProdutoCalculado($event)"></app-calculo-valor>
+        </div>
+      </mat-card>
+      <div fxLayoutAlign="center" *ngIf="produtos.length === 0">
+        <img src="assets/icones/imagem-carrinho-empty-state.png" alt="image">
+      </div>
+    </mat-card-content>
+  </mat-card>

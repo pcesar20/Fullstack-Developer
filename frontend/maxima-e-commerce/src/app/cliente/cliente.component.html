@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon fxFlex="25" matPrefix inline="true">person_outline</mat-icon>
+        Cliente
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form fxFlex class="client-form">
+        <mat-form-field fxFlex="50">
+          <mat-icon matSuffix inline="true" *ngIf="!selectedCliente">search</mat-icon>
+          <input type="text"
+                 placeholder="Selecione um cliente"
+                 aria-label="Cliente"
+                 matInput
+                 required
+                 [formControl]="ClientesFormControl"
+                 [matAutocomplete]="auto">
+          <button mat-button *ngIf="selectedCliente" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="ClientesFormControl.reset()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSubmit()">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
